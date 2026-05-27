@@ -126,7 +126,6 @@ color:black;
 </style>
 </head>
 <body>
-
 <div class="wrap">
   <div class="card">  
     <div class="running-text">
@@ -148,7 +147,7 @@ color:black;
       <div class="logo"><b style="color:#ffff00;">ISU</b></div>
       <div>
         <h2 style="color:#00ff00; margin:4px 0 0 0; font-weight:600;">INTEGRATED SYSTEM UPLOAD</h2>
-        <h1>BIDLAT K/L PUSLAT KODIKLATAU</h1>        
+        <h1>PROGAR PUSLAT KODIKLATAU</h1>        
         <p style="font-size:12px;color:#ffff00">
         DATE/TIME : <span class="code-private" id="tanggal"></span>
         </p>
@@ -170,7 +169,7 @@ color:black;
             style="
             font-family: Lucida Console;
             ">
-            
+            atau gunakan tombol di bawah
             </div>
             <div class="controls">
               <label class="btn primary" for="fileInput">Pilih File</label>              
@@ -284,6 +283,50 @@ font-weight:Normal;">
     </div>
   </div>
 </div>
+<script type="module">
+import {
+initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+
+import {
+getAuth,
+onAuthStateChanged
+}
+from
+"https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+const firebaseConfig = {
+apiKey: "AIzaSyCs0oYCUVRRXyRNX4oQ962_vjzm9ipNfb0",
+  authDomain: "progar-upload.firebaseapp.com",
+  projectId: "progar-upload",
+  storageBucket: "progar-upload.firebasestorage.app",
+  messagingSenderId: "254271134587",
+  appId: "1:254271134587:web:39207108f7a1802ec3fbde",
+  measurementId: "G-L213D6X544"};
+const app =
+initializeApp(
+firebaseConfig
+);
+
+const auth =
+getAuth(app);
+
+onAuthStateChanged(
+auth,
+(user)=>{
+
+if(!user){
+
+window.location.href =
+"index.html";
+
+}
+
+}
+);
+</script>
 <script>
 const WEBAPP_URL =
 "https://script.google.com/macros/s/AKfycbzpdBDipLVv0loZYU4Z1cmzahoC-sGKZ1T8H_QRPZ-ABRRqy0G8m0kw1-hczlJuP7xVtg/exec";
@@ -460,13 +503,13 @@ document.addEventListener("click", function() {
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 const firebaseConfig = {
-  apiKey: "AIzaSyC7SkdwajJl6pzXehN6zpeycNfT5ZHFXP4",
-  authDomain: "portalmonitoring-a0926.firebaseapp.com",
-  databaseURL: "https://portalmonitoring-a0926-default-rtdb.asia-southeast1.firebasedatabase.app/",
-  projectId: "portalmonitoring-a0926",
-  storageBucket: "portalmonitoring-a0926.appspot.com",
-  messagingSenderId: "27756738323",
-  appId: "1:27756738323:web:010277cc1eb9b7cdfa97cd"
+  apiKey: "AIzaSyBPnHoVE1-oCmR0vsVCFKfy0aL0cb-J-Hk",
+  authDomain: "bidlatkl.firebaseapp.com",
+  projectId: "bidlatkl",
+  storageBucket: "bidlatkl.firebasestorage.app",
+  messagingSenderId: "205489689809",
+  appId: "1:205489689809:web:e788832a9bf7c88e5b21f0",
+  measurementId: "G-9N08S9JQ33"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -608,6 +651,38 @@ window.location.href=
 this.value;
 }
 
+}
+);
+</script>
+<script>
+
+// TIMER LOGIN 10 DETIK
+let fileDipilih =
+false;
+// kalau belum klik pilih file
+setTimeout(()=>{
+if(
+!fileDipilih
+){
+alert(
+"network not stabled please check your network"
+);
+window.location.replace(
+"./index.html"
+);
+}
+},
+5000);
+// saat klik pilih file
+document
+.getElementById(
+"fileInput"
+)
+.addEventListener(
+"click",
+()=>{
+fileDipilih =
+true;
 }
 );
 </script>
